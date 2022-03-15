@@ -23,7 +23,9 @@ public interface userOrdersRepository extends JpaRepository<userOrders, Long> {
     @Query(value = "Select coalesce(max(price),0) from userOrders where type = '1' and status = '1' and id_stocks = ?1", nativeQuery = true)
     Double selecionaMaiorPrecoCompra(Long id_stock);
 
-    @Query(value = "select * from userOrders uo where uo.id_user <> :id_user and uo.id_stocks = :id_stock and uo."type"  <> :type and uo.status=1", nativeQuery = true)
+    // @Query(value = "select * from userOrders uo where uo.id_user <> :id_user and
+    // uo.id_stocks = :id_stock and uo."type" <> :type and uo.status=1", nativeQuery
+    // = true)
     List<userOrders> tipoEstock(@Param("type") int type, @Param("id_stock") long id_stock,
             @Param("id_user") long id_user);
 

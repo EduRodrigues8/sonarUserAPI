@@ -37,9 +37,9 @@ public class user_StockBalancesService implements userAndStockID {
         }
     }
 
-    public userStockBalances encontraUser(long idUser) {
-        return repository.encontraUser(idUser);
-    }
+    // public userStockBalances encontraUser(long idUser) {
+    // return repository.encontraUser(idUser);
+    // }
 
     // @Override
     // public ResponseEntity<?> atualizaStockUser(long idUser, long idStock, long
