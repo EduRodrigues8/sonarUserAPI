@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  database:
+    image: "postgres:latest"
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker-postgresql-multiple-databases:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=solinftec
+      - POSTGRES_MULTIPLE_DATABASES=users,stocks
+  apiorders:
+    image: "apiusers:v1"
+    ports:
+      - 8090:8090
+    environment:
+      DB_URL: jdbc:postgresql://database:5432/users
+  apistocks:
+    image: "apistock:v1"
+    ports:
+      - 8095:8095
+    environment:
+      DB_URL: jdbc:postgresql://database:5432/stocks
